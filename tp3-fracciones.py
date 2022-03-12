@@ -53,10 +53,11 @@ class Fraccion:
             nuevoDen = self.den
         return Fraccion(nuevoNum, nuevoDen)
 
-"""
+
 print(Fraccion(3,5) + Fraccion(4,3))
+
 print(Fraccion(29,15))
-"""
+
 
 """
 assert Fraccion(3, 5) + Fraccion(4, 3) == Fraccion(29, 15)
