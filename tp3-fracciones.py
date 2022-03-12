@@ -30,6 +30,38 @@ resultado = suma(fraccion1, fraccion2)
 
 print(resultado)
 """
-#assert Fraccion(2, 3) + Fraccion(1, 3) == Fraccion(3, 3)
-#assert Fraccion(4, 5) + Fraccion(3, 5) == Fraccion(7, 5)
-#assert Fraccion(3, 2) + Fraccion(8, 11) == Fraccion(49, 22)
+
+# Segunda version con __add__
+
+class Fraccion:
+
+    def __init__(self, numerador, denominador):
+        self.num = numerador
+        self.den = denominador
+
+    def __str__(self):
+        return f'{self.num}/{self.den}'
+    
+    def __add__(self, otro):
+        if type(otro) != Fraccion:
+            raise ValueError('Solo se puede sumar una Fraccion')
+        if self.den != otro.den:
+            nuevoDen = self.den * otro.den
+            nuevoNum = self.num * otro.den + self.den * otro.num
+        else:
+            nuevoNum = self.num + otro.num
+            nuevoDen = self.den
+        return Fraccion(nuevoNum, nuevoDen)
+
+"""
+print(Fraccion(3,5) + Fraccion(4,3))
+print(Fraccion(29,15))
+"""
+
+"""
+assert Fraccion(3, 5) + Fraccion(4, 3) == Fraccion(29, 15)
+assert Fraccion(1, 2) + Fraccion(1, 4) == Fraccion(6, 8)
+assert Fraccion(1, 3) + Fraccion(2, 4) == Fraccion(10, 12)
+
+print("Todo Ok!")
+"""
