@@ -47,6 +47,10 @@ class Fraccion:
             raise ValueError('Solo se puede sumar una Fraccion')
         if self.den == 0 or otro.den == 0:
             raise ValueError('El denominador de la fraccion no debe ser 0')
+        return self.sumar_fraccion(otro)
+    
+
+    def sumar_fraccion(self, otro):
         if self.den != otro.den:
             nuevoDen = self.den * otro.den
             nuevoNum = self.num * otro.den + self.den * otro.num
@@ -56,13 +60,11 @@ class Fraccion:
         return Fraccion(nuevoNum, nuevoDen)
 
 
-print(Fraccion(3,4) + Fraccion(4,5))
+print(Fraccion(3,5) + Fraccion(4,3))
+print(Fraccion(29,15))
 
-
-"""
 assert Fraccion(3, 5) + Fraccion(4, 3) == Fraccion(29, 15)
 assert Fraccion(1, 2) + Fraccion(1, 4) == Fraccion(6, 8)
 assert Fraccion(1, 3) + Fraccion(2, 4) == Fraccion(10, 12)
 
 print("Todo Ok!")
-"""
